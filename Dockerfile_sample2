@@ -1,0 +1,30 @@
+# Use a base image with JDK
+FROM openjdk:17 AS build
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the Maven build file and the source code
+COPY pom.xml ./
+COPY src ./src
+
+# Install Maven
+RUN apt-get update && apt-get install -y maven
+
+# Build the application using Maven
+RUN mvn clean package -DskipTests
+
+# Create a new stage for the runtime
+FROM openjdk:17-jdk-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the built JAR file from the previous stage
+COPY --from=build /app/target/*.jar spring-boot-docker.jar  
+
+# Expose the application port
+EXPOSE 9192
+
+# Run the application
+ENTRYPOINT ["java", "-jar", "spring-boot-docker.jar"]

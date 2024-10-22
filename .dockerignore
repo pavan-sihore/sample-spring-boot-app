@@ -1,0 +1,46 @@
+# Ignore the build directory
+/build/
+target/
+
+# Ignore IntelliJ IDEA files
+.idea/
+*.iml
+
+# Ignore Eclipse project files
+.classpath
+.project
+.settings/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore local environment files
+.env
+*.log
+*.tmp
+
+# Ignore other common files
+*.jar
+*.war
+*.zip
+*.tar.gz
+*.tar
+*.bak
+
+# Ignore version control directories
+.git/
+.gitignore
+*.git*
+.hg/
+.hgignore
+
+# Ignore other miscellaneous files
+*.class
+*.cache
+*.swp
+*.swo
+
+Dockerfile
+.editorconfig
+
