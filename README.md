@@ -51,7 +51,7 @@ $ docker build -t springbootapp .
 
 ```bash
 # Run Application
-$ docker run -it -d --name springBootApp1 springbootapp -p 9192:9192
+$ docker run -d -p 9192:9192 springbootapp
 ```
 
 ```bash
@@ -61,7 +61,7 @@ $ docker pc
 
 ```bash
 # Check Log
-$ docker logs springBootApp1
+$ docker logs springbootapp
 ```
 
 ```bash
@@ -76,5 +76,5 @@ $ docker start <container-id>
 
 ```bash
 # download jar file in local machine
-$ docker cp springBootApp1:/app/spring-boot-docker.jar ./
+$ docker cp springbootapp:/app/spring-boot-docker.jar ./
 ```
